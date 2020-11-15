@@ -2,12 +2,15 @@ package com.skilldistillery.run.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name ="run")
 public class Run {
 
 	@Id
@@ -23,8 +26,12 @@ public class Run {
 	private double time;
 
 	private int calories;
-
+	
+	@Column(name = "elevation_gain")
 	private double elevationGain;
+	
+	@Column(name = "avg_heart_rate")
+	private int avgHeartRate;
 
 	private Date date;
 
@@ -96,10 +103,19 @@ public class Run {
 		this.location = location;
 	}
 
+	public int getAvgHeartRate() {
+		return avgHeartRate;
+	}
+
+	public void setAvgHeartRate(int avgHeartRate) {
+		this.avgHeartRate = avgHeartRate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + avgHeartRate;
 		result = prime * result + calories;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		long temp;
@@ -124,6 +140,8 @@ public class Run {
 		if (getClass() != obj.getClass())
 			return false;
 		Run other = (Run) obj;
+		if (avgHeartRate != other.avgHeartRate)
+			return false;
 		if (calories != other.calories)
 			return false;
 		if (date == null) {
@@ -157,9 +175,11 @@ public class Run {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Run [id=").append(id).append(", name=").append(name).append(", location=").append(location)
 				.append(", distance=").append(distance).append(", time=").append(time).append(", calories=")
-				.append(calories).append(", elevationGain=").append(elevationGain).append(", date=").append(date)
-				.append("]");
+				.append(calories).append(", elevationGain=").append(elevationGain).append(", avgHeartRate=")
+				.append(avgHeartRate).append(", date=").append(date).append("]");
 		return builder.toString();
 	}
+
+
 
 }
