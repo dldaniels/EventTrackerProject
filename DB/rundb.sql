@@ -16,13 +16,19 @@ CREATE SCHEMA IF NOT EXISTS `runDB` DEFAULT CHARACTER SET utf8 ;
 USE `runDB` ;
 
 -- -----------------------------------------------------
--- Table `table1`
+-- Table `Run`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `table1` ;
+DROP TABLE IF EXISTS `Run` ;
 
-CREATE TABLE IF NOT EXISTS `table1` (
+CREATE TABLE IF NOT EXISTS `Run` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `distance` DOUBLE NULL,
+  `time` DOUBLE NULL,
+  `calories` INT NULL,
+  `elevation_gain` DOUBLE NULL,
+  `date` DATE NULL,
+  `avg_heart_rate` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -38,11 +44,11 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `table1`
+-- Data for table `Run`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `runDB`;
-INSERT INTO `table1` (`id`, `name`) VALUES (1, 'Phil');
+INSERT INTO `Run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`) VALUES (1, 'Phil', 3.14, 27.49, 590, 64, '2020-11-11', 76);
 
 COMMIT;
 
