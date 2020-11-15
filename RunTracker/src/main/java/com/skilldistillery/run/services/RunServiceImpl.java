@@ -15,7 +15,8 @@ public class RunServiceImpl  implements RunService{
 	private RunRepository repo;
 	
 	public List<Run> getAllRuns() {
-		return null;
+		List<Run> allRuns = repo.findAll();
+		return allRuns;
 	}
 
 }

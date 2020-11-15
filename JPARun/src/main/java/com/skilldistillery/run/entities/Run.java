@@ -1,6 +1,6 @@
 package com.skilldistillery.run.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +33,7 @@ public class Run {
 	@Column(name = "avg_heart_rate")
 	private int avgHeartRate;
 
-	private Date date;
+	private LocalDate date;
 
 	public Run() {
 		super();
@@ -71,11 +71,11 @@ public class Run {
 		this.elevationGain = elevationGain;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setLocalDate(LocalDate date) {
 		this.date = date;
 	}
 

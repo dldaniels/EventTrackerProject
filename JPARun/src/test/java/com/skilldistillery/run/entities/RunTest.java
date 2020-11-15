@@ -45,6 +45,15 @@ class RunTest {
 	void test_Run_entity_mapping() {
 		assertNotNull(run);
 		assertEquals("Phil", run.getName());
+		assertEquals(3.14, run.getDistance());
+		assertEquals(27.49, run.getTime());
+		assertEquals(590, run.getCalories());
+		assertEquals(64, run.getElevationGain());
+		assertEquals(2020, run.getDate().getYear());
+		assertEquals(11, run.getDate().getDayOfMonth());
+		assertEquals(11, run.getDate().getMonthValue());
+		
+		
 	}
 
 }
