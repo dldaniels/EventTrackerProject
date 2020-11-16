@@ -13,7 +13,7 @@ mysql -u run -p rundb
 
 ## REST API Endpoints
 
-Below are the api endpoints in use on this project. Enter the route for each function in postman for testing.
+Below are the api endpoints in use on this project. Enter the route for each function in postman for testing. There are currently 9 runs in the DB for testing purposes. These 9 runs may be edited or deleted. Any additional runs added will be assigned an ID number starting at 10. 
 
 |Return Type   |        | Route    | Functionality |
 |----------|-------------|--------|-------------|
