@@ -17,7 +17,7 @@ Below are the api endpoints in use on this project. Enter the route for each fun
 
 |Return Type   |        | Route    | Functionality |
 |----------|-------------|--------|-------------|
-| List<Run> | GET  | api/runs | Show List of All Runs |
+| `List<Run>` | GET  | api/runs | Show List of All Runs |
 | Run | GET | api/runs/{runId} | Show Individual Run by ID |
 | Run | POST | api/runs | Create a new Run |
 | Run | PUT | api/runs/{runId} | Updates an existing Run by ID |
