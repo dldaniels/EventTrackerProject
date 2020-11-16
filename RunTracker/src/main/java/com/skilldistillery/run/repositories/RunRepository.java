@@ -9,5 +9,7 @@ import com.skilldistillery.run.entities.Run;
 public interface RunRepository extends JpaRepository<Run, Integer> {
 	
 	
+	
+	
 
 }
