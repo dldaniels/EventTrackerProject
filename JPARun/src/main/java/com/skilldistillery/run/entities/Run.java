@@ -1,7 +1,5 @@
 package com.skilldistillery.run.entities;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="run")
+@Table(name = "run")
 public class Run {
 
 	@Id
@@ -21,62 +19,68 @@ public class Run {
 
 	private String location;
 
-	private double distance;
+	private Double distance;
 
-	private double time;
+	private Double time;
 
-	private int calories;
-	
+	private Integer calories;
+
 	@Column(name = "elevation_gain")
-	private double elevationGain;
-	
-	@Column(name = "avg_heart_rate")
-	private int avgHeartRate;
+	private Double elevationGain;
 
-	private LocalDate date;
+	@Column(name = "avg_heart_rate")
+	private Integer avgHeartRate;
+
+	private String date;
 
 	public Run() {
 		super();
 	}
 
-	public double getDistance() {
+	public Run(int id, String name, String location, Double distance, Double time, Integer calories,
+			Double elevationGain, Integer avgHeartRate, String date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.distance = distance;
+		this.time = time;
+		this.calories = calories;
+		this.elevationGain = elevationGain;
+		this.avgHeartRate = avgHeartRate;
+		this.date = date;
+	}
+
+	public Double getDistance() {
 		return distance;
 	}
 
-	public void setDistance(double distance) {
+	public void setDistance(Double distance) {
 		this.distance = distance;
 	}
 
-	public double getTime() {
+	public Double getTime() {
 		return time;
 	}
 
-	public void setTime(double time) {
+	public void setTime(Double time) {
 		this.time = time;
 	}
 
-	public int getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
-	public void setCalories(int calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 
-	public double getElevationGain() {
+	public Double getElevationGain() {
 		return elevationGain;
 	}
 
-	public void setElevationGain(double elevationGain) {
+	public void setElevationGain(Double elevationGain) {
 		this.elevationGain = elevationGain;
-	}
-
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setLocalDate(LocalDate date) {
-		this.date = date;
 	}
 
 	public int getId() {
@@ -103,31 +107,35 @@ public class Run {
 		this.location = location;
 	}
 
-	public int getAvgHeartRate() {
+	public Integer getAvgHeartRate() {
 		return avgHeartRate;
 	}
 
-	public void setAvgHeartRate(int avgHeartRate) {
+	public void setAvgHeartRate(Integer avgHeartRate) {
 		this.avgHeartRate = avgHeartRate;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + avgHeartRate;
-		result = prime * result + calories;
+		result = prime * result + ((avgHeartRate == null) ? 0 : avgHeartRate.hashCode());
+		result = prime * result + ((calories == null) ? 0 : calories.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(distance);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(elevationGain);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((distance == null) ? 0 : distance.hashCode());
+		result = prime * result + ((elevationGain == null) ? 0 : elevationGain.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		temp = Double.doubleToLongBits(time);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((time == null) ? 0 : time.hashCode());
 		return result;
 	}
 
@@ -140,18 +148,30 @@ public class Run {
 		if (getClass() != obj.getClass())
 			return false;
 		Run other = (Run) obj;
-		if (avgHeartRate != other.avgHeartRate)
+		if (avgHeartRate == null) {
+			if (other.avgHeartRate != null)
+				return false;
+		} else if (!avgHeartRate.equals(other.avgHeartRate))
 			return false;
-		if (calories != other.calories)
+		if (calories == null) {
+			if (other.calories != null)
+				return false;
+		} else if (!calories.equals(other.calories))
 			return false;
 		if (date == null) {
 			if (other.date != null)
 				return false;
 		} else if (!date.equals(other.date))
 			return false;
-		if (Double.doubleToLongBits(distance) != Double.doubleToLongBits(other.distance))
+		if (distance == null) {
+			if (other.distance != null)
+				return false;
+		} else if (!distance.equals(other.distance))
 			return false;
-		if (Double.doubleToLongBits(elevationGain) != Double.doubleToLongBits(other.elevationGain))
+		if (elevationGain == null) {
+			if (other.elevationGain != null)
+				return false;
+		} else if (!elevationGain.equals(other.elevationGain))
 			return false;
 		if (id != other.id)
 			return false;
@@ -165,7 +185,10 @@ public class Run {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (Double.doubleToLongBits(time) != Double.doubleToLongBits(other.time))
+		if (time == null) {
+			if (other.time != null)
+				return false;
+		} else if (!time.equals(other.time))
 			return false;
 		return true;
 	}
@@ -179,7 +202,5 @@ public class Run {
 				.append(avgHeartRate).append(", date=").append(date).append("]");
 		return builder.toString();
 	}
-
-
 
 }

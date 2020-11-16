@@ -32,14 +32,27 @@ public class RunServiceImpl  implements RunService{
 
 	@Override
 	public Run createRun(Run run) {
-		// TODO Auto-generated method stub
+		repo.saveAndFlush(run);
 		return null;
 	}
 
 	@Override
 	public Run updateRun(Run run, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Run> runOpt = repo.findById(id);
+		Run managedRun = null;
+		if(runOpt.isPresent()) {
+			managedRun = runOpt.get();
+		if(run.getName() != null) {managedRun.setName(run.getName()); }
+		if(run.getDistance() != null) {managedRun.setDistance(run.getDistance()); }
+		if(run.getTime() != null) {managedRun.setTime(run.getTime()); }
+		if(run.getCalories() != null) {managedRun.setCalories(run.getCalories()); }
+		if(run.getElevationGain() != null) {managedRun.setElevationGain(run.getElevationGain()); }
+		if(run.getDate() != null) {managedRun.setDate(run.getDate()); }
+		if(run.getAvgHeartRate() != null) {managedRun.setAvgHeartRate(run.getAvgHeartRate()); }
+		if(run.getLocation() != null) {managedRun.setLocation(run.getLocation()); }
+		repo.flush();
+		}
+		return managedRun;
 	}
 
 	@Override

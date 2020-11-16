@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS `run` (
   `distance` DOUBLE NULL,
   `time` DOUBLE NULL,
   `calories` INT NULL,
-  `elevation_gain` DOUBLE NULL,
-  `date` DATE NULL,
+  `elevation_gain` VARCHAR(45) NULL,
+  `date` VARCHAR(45) NULL,
   `avg_heart_rate` INT NULL,
   `location` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))
@@ -49,7 +49,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `runDB`;
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (1, 'Phil', 3.14, 27.49, 590, 64, '2020-11-11', 76, NULL);
+INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (1, 'Phil', 3.14, 27.49, 590, '64', '2020-11-11', 76, 'Sloans Lake');
+INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (2, 'Bill', 4.29, 41.32, 788, '144', '2020-11-13', 79, 'Clear Creek Trail');
 
 COMMIT;
 
