@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RunTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Run run;
@@ -50,8 +50,7 @@ class RunTest {
 		assertEquals(590, run.getCalories());
 		assertEquals(64, run.getElevationGain());
 		assertEquals("2020-11-11", run.getDate());
-	
-		
+
 	}
 
 }

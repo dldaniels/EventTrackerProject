@@ -57,8 +57,13 @@ public class RunServiceImpl  implements RunService{
 
 	@Override
 	public boolean deleteRun(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean deleted = false;
+		Optional<Run> runOpt = repo.findById(id);
+		if(runOpt.isPresent()) {
+			repo.deleteById(id);
+			deleted = true;
+		}
+		return deleted;
 	}
 
 }

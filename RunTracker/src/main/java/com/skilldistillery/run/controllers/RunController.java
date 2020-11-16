@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,7 +51,7 @@ public class RunController {
 			run = svc.createRun(run);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
-		//	url.append("/").append(run.getId());
+			// url.append("/").append(run.getId());
 //			System.out.println(url.toString());
 			response.setHeader("Location", url.toString());
 
@@ -75,6 +76,17 @@ public class RunController {
 			run = null;
 		}
 		return run;
+	}
+
+	@DeleteMapping("runs/{runId}")
+	public void deleteRun(@PathVariable Integer runId, HttpServletResponse response) {
+		if (svc.deleteRun(runId)) {
+			response.setStatus(204);
+
+		} else {
+			response.setStatus(404);
+		}
+
 	}
 
 }
