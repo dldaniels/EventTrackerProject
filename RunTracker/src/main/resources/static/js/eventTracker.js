@@ -1,12 +1,12 @@
-// window.addeventListener('load', function(){
-//  console.log('Script loaded'); 
-//  });
+window.addeventListener('load', function(){
+ console.log('Script loaded'); 
+ });
 
  
- window.addEventListener('load', function(e) {
-  console.log('document loaded');
-  init();
-});
+//  window.addEventListener('load', function(e) {
+//   console.log('document loaded');
+//   init();
+// });
 function init() {
   document.runForm.lookup.addEventListener('click', function(event) {
     event.preventDefault();
@@ -58,18 +58,15 @@ function displayRun(run) {
   let h1 = document.createElement('h1');
   h1.textContent = run.name;
   dataDiv.appendChild(h1);
-  let bq = document.createElement('h2');
-  bq.textContent = run.date;
-  dataDiv.appendChild(h2);
   let ul = document.createElement('ul');
   let li = document.createElement('li');
   li.textContent = run.location;
   ul.appendChild(li);
   li = document.createElement('li');
-  li.textContent = run.time;
+  li.textContent = run.distance;
   ul.appendChild(li);
   li = document.createElement('li');
-  li.textContent = run.distance;
+  li.textContent = run.time;
   ul.appendChild(li);
   li = document.createElement('li');
   li.textContent = run.calories;
@@ -79,6 +76,9 @@ function displayRun(run) {
   ul.appendChild(li);
   li = document.createElement('li');
   li.textContent = run.avgHeartRate;
+  ul.appendChild(li);
+  li = document.createElement('li');
+  li.textContent = run.date;
   ul.appendChild(li);
   dataDiv.appendChild(ul);
   // TODO: pass film.id to a displayActors(filmId) function
@@ -92,13 +92,13 @@ function postNewRun(e) {
   let form = document.newRunForm;
   let newRun = {
     name: form.name.value,
-    date: form.date.value,
     location: form.location.value,
-    time: form.time.value,
     distance: form.distance.value,
+    time: form.time.value,
+    calories: form.calories.value,
     elevationGain: form.elevationGain.value,
     avgHeartRate: form.avgHeartRate.value,
-    calories: form.calories.value
+    date: form.date.value
     
   };
   console.log(newRun);
