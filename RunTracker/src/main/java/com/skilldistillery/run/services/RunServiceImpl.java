@@ -1,5 +1,6 @@
 package com.skilldistillery.run.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ public class RunServiceImpl  implements RunService{
 	@Override
 	public Run createRun(Run run) {
 		repo.saveAndFlush(run);
-		return null;
+		return repo.save(run);
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class RunServiceImpl  implements RunService{
 		Run managedRun = null;
 		if(runOpt.isPresent()) {
 			managedRun = runOpt.get();
-		if(run.getName() != null) {managedRun.setName(run.getName()); }
+		
 		if(run.getDistance() != null) {managedRun.setDistance(run.getDistance()); }
 		if(run.getTime() != null) {managedRun.setTime(run.getTime()); }
 		if(run.getCalories() != null) {managedRun.setCalories(run.getCalories()); }
@@ -50,6 +51,7 @@ public class RunServiceImpl  implements RunService{
 		if(run.getDate() != null) {managedRun.setDate(run.getDate()); }
 		if(run.getAvgHeartRate() != null) {managedRun.setAvgHeartRate(run.getAvgHeartRate()); }
 		if(run.getLocation() != null) {managedRun.setLocation(run.getLocation()); }
+		if(run.getDescription() != null) {managedRun.setDescription(run.getDescription()); }
 		repo.flush();
 		}
 		return managedRun;
@@ -67,3 +69,4 @@ public class RunServiceImpl  implements RunService{
 	}
 
 }
+

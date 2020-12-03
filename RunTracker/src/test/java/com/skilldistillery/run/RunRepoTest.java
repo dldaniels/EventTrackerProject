@@ -23,7 +23,7 @@ class RunRepoTest {
 		Optional<Run> opt = repo.findById(1);
 		assertTrue(opt.isPresent());
 		Run run = opt.get();
-		assertEquals("Phil", run.getName());
+		assertEquals("Sloans Lake", run.getLocation());
 	}
 
 }

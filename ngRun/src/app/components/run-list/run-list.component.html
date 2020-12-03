@@ -1,0 +1,127 @@
+
+<div class="jumbotron-fluid">
+  <h1 class="titleJumbo" style="font-family: Audiowide;">Run Tracker</h1>
+  </div>
+  <div *ngIf="!selected" class="container-fluid">
+    <div class="table-container">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Distance</th>
+        <th>Time</th>
+        <th>Calories</th>
+        <th>Average Heart Rate</th>
+        <th>Elevation Gain</th>
+        <th>Description</th>
+        <th>View Run</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let run of runs" class="table-secondary">
+        <td scope="row" (click)="showRun(run)">{{run.date}}</td>
+        <td>{{run.location}}</td>
+        <td>{{run.distance}}</td>
+        <td>{{run.time}}</td>
+        <td>{{run.calories}}</td>
+        <td>{{run.avgHeartRate}}</td>
+        <td>{{run.elevationGain}}</td>
+        <td>{{run.description}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="showRun(run)">View Run</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteRun(run)">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div *ngIf="selected && editRun" class="container-fluid">
+  <form class="editForm">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input class="form-control" type="text" name="date" [(ngModel)]="editRun.date">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input class="form-control" type="text" name="location" [(ngModel)]="editRun.location">
+    </div>
+    <div class="form-group">
+      <label for="distance">Distance</label>
+      <input class="form-control" type="number" step="0.01" name="distance" [(ngModel)]="editRun.distance">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Time</label>
+      <input class="form-control" type="text" name="time" [(ngModel)]="editRun.time">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Calories</label>
+      <input class="form-control" type="text" name="calories" [(ngModel)]="editRun.calories">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Average Heart Rate</label>
+      <input class="form-control" type="text" name="avg heart rate" [(ngModel)]="editRun.avgHeartRate">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Elevation Gain</label>
+      <input class="form-control" type="text" name="Elevation Gain" [(ngModel)]="editRun.elevationGain">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Description</label>
+      <input class="form-control" type="text" name="description" [(ngModel)]="editRun.description">
+    </div>
+    <div>
+      <br><br>
+      <button class="btn btn-primary" (click)="updateRun(editRun)">Update Run</button>
+      <button class="btn btn-warning" (click)="goBack()">Back</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="addRun" class="container-fluid">
+  <form class="editForm">
+    <h2>Add A Run</h2>
+    <div class="form-group">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input class="form-control" type="text" name="date" [(ngModel)]="newRun.date">
+      </div>
+      <label for="location">Location</label>
+      <input class="form-control" type="text" name="location" [(ngModel)]="newRun.location">
+    </div>
+    <div class="form-group">
+      <label for="distance">Distance</label>
+      <input class="form-control" type="number" step="0.01" name="distance" [(ngModel)]="newRun.distance">
+    </div>
+    <div class="form-group">
+      <label for="totalTime">Time</label>
+      <input class="form-control" type="text" name="time" [(ngModel)]="newRun.time">
+    </div>
+    <div class="form-group">
+      <label for="distance">Calories</label>
+      <input class="form-control" type="number" name="calories" [(ngModel)]="newRun.calories">
+    </div>
+    <div class="form-group">
+      <label for="distance">Average Heart Rate</label>
+      <input class="form-control" type="number" name="average Heart Rate" [(ngModel)]="newRun.avgHeartRate">
+    </div>
+    <div class="form-group">
+      <label for="distance">Elevation Gain</label>
+      <input class="form-control" type="number" name="elevationGain" [(ngModel)]="newRun.elevationGain">
+    </div>
+    <div class="form-group">
+      <label for="distance">Description</label>
+      <input class="form-control" type="text" name="description" [(ngModel)]="newRun.description">
+    </div>
+    <div>
+      <br>
+      <button class="btn btn-primary" (click)="addRun(newRun)">Add Run</button>
+    </div>
+  </form>
+</div>

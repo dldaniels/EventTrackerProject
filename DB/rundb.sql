@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS `run` ;
 
 CREATE TABLE IF NOT EXISTS `run` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(500) NULL,
   `distance` DOUBLE NULL,
   `time` DOUBLE NULL,
   `calories` INT NULL,
@@ -30,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `run` (
   `date` VARCHAR(45) NULL,
   `avg_heart_rate` INT NULL,
   `location` VARCHAR(500) NULL,
+  `description` VARCHAR(21000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -49,15 +49,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `runDB`;
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (1, 'Phil', 3.14, 27.49, 590, '64', '2020-11-11', 76, 'Sloans Lake');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (2, 'Bill', 4.29, 41.32, 788, '144', '2020-11-13', 79, 'Clear Creek Trail');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (3, 'Will', 3.77, 35.22, 612, '32', '2020-11-09', 72, 'Berkley Park');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (4, 'Jill', 4.02, 38.13, 698, '15', '2020-11-07', 76, 'Crown Hill Park');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (5, 'Bob', 5.77, 48.46, 976, '77', '2020-11-06', 79, 'South Platte Trail');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (6, 'Kevin', 3.50, 33.51, 602, '97', '2020-11-05', 72, 'Clear Creek Trail');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (7, 'Fred', 3.14, 29.42, 554, '78', '2020-11-03', 75, 'Clear Creek Trail');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (8, 'Steve', 7.32, 75.44, 1183, '173', '2020-11-02', 72, 'Sloans lake');
-INSERT INTO `run` (`id`, `name`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`) VALUES (9, 'Carl', 2.00, 22.33, 376, '15', '2020-11-01', 78, 'Wheat Ridge High Track');
+INSERT INTO `run` (`id`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`, `description`) VALUES (1, 3.14, 27.49, 590, '64', '2020-11-11', 131, 'Sloans Lake', 'Light jog through the park, felt awesome.');
+INSERT INTO `run` (`id`, `distance`, `time`, `calories`, `elevation_gain`, `date`, `avg_heart_rate`, `location`, `description`) VALUES (2, 4.29, 41.32, 788, '144', '2020-11-13', 144, 'Clear Creek Trail', 'Moderate pace along trail from Wadworth blvd to Youngfield St. felt pretty rough.');
 
 COMMIT;
 

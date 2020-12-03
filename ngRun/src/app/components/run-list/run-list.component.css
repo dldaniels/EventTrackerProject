@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans&display=swap");
+
+select {
+  font-size: 20px;
+}
+button {
+  margin: 2.5px;
+}
+.jumbotron-fluid {
+  text-align: center;
+  vertical-align: text-bottom;
+  font-family: "Audiowide", "Times New Roman", Times, serif;
+  font-size: 300px;
+  border-style: solid;
+  background-image: url("https://i2.wp.com/www.zoom-comics.com/wp-content/uploads/sites/36/2018/09/The-Flash-is-running.jpg?w=1900&ssl=1");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.titleJumbo {
+  font-size: 115px;
+  font-style: italic;
+  color: rgb(240, 236, 12);
+  font-weight: bold;
+  text-shadow: rgb(7, 5, 0) 3px 3px;
+}
+
+.editForm {
+  background-color: rgba(194, 16, 16, 0.9);
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  color: rgb(240, 236, 12);
+  font-family: "Audiowide";
+  font-style: italic;
+  font-weight: bold;
+
+  text-shadow: rgb(7, 5, 0) 3px 3px;
+  font-size: 30px;
+}
+
+.form-control {
+  display: flex;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: left;
+}
+.table-container {
+  /* background-image: url(https://cdn.worldvectorlogo.com/logos/the-flash.svg); */
+  background-size: 200px;
+  background-position: top;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  height: 300px;
+}

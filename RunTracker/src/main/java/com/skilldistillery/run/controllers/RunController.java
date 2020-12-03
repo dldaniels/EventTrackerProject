@@ -6,11 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skilldistillery.run.entities.Run;
 import com.skilldistillery.run.services.RunService;
 
+@CrossOrigin({"*", "http://localhost:4204"})
 @RequestMapping("api")
 @RestController
 public class RunController {
@@ -46,13 +48,14 @@ public class RunController {
 	}
 
 	@PostMapping("runs")
-	public Run addRun(@RequestBody Run run, HttpServletResponse response, HttpServletRequest request) {
+	public Run createRun(@RequestBody Run run, HttpServletResponse response, HttpServletRequest request) {
+		Run createdRun = null;
 		try {
-			run = svc.createRun(run);
+			createdRun = svc.createRun(run);
+//			createdRun.setEnabled(true);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
-			// url.append("/").append(run.getId());
-//			System.out.println(url.toString());
+			url.append("/").append(run.getId());
 			response.setHeader("Location", url.toString());
 
 		} catch (Exception e) {
@@ -60,7 +63,7 @@ public class RunController {
 			response.setStatus(400);
 			run = null;
 		}
-		return run;
+		return createdRun;
 	}
 
 	@PutMapping("runs/{runId}")
@@ -77,6 +80,25 @@ public class RunController {
 		}
 		return run;
 	}
+
+//	@PutMapping("runs/disable/{runId}")
+//	public void disableRun( 
+//			@PathVariable Integer tId,
+//			HttpServletResponse response	
+//	) {
+//		try {
+//			if(svc.disableRun(tId)) {
+//				response.setStatus(204); 
+//			}
+//			else {
+//				response.setStatus(404); 
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			response.setStatus(409); 
+//		}
+//
+//	}
 
 	@DeleteMapping("runs/{runId}")
 	public void deleteRun(@PathVariable Integer runId, HttpServletResponse response) {

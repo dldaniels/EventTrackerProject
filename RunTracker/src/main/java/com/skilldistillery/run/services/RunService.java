@@ -10,6 +10,7 @@ public interface RunService {
 	Run showRun(Integer id);
 	Run createRun(Run run);
 	Run updateRun(Run run, Integer id);
+//	boolean disableRun(Integer id);
 	boolean deleteRun(Integer id);
 	
 
