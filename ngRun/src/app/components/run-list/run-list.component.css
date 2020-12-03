@@ -48,6 +48,9 @@ button {
   text-align: center;
 }
 
+th{
+  position: sticky;
+}
 table,
 th,
 td {
@@ -55,6 +58,7 @@ td {
   border-collapse: collapse;
   padding: 15px;
   text-align: left;
+
 }
 .table-container {
   /* background-image: url(https://cdn.worldvectorlogo.com/logos/the-flash.svg); */

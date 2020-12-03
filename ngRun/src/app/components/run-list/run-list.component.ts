@@ -12,6 +12,7 @@ export class RunListComponent implements OnInit {
   selected = null;
   newRun = new Run();
   editRun = null;
+  makeRun = null;
   runs: Run[] = [];
 
   constructor(private runService: RunService) {}
