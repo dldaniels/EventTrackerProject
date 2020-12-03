@@ -12,6 +12,7 @@ export class RunService {
   constructor(private http: HttpClient) { }
 
   private baseUrl = 'http://localhost:8085/';
+  //baseUrl = '/RunTracker/';
   private url = this.baseUrl + 'api/runs'
 
 
