@@ -15,14 +15,14 @@
         <th>Average Heart Rate</th>
         <th>Elevation Gain</th>
         <th>Description</th>
-        <th>View Run</th>
+        <th>Edit</th>
         <th>Delete</th>
 
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let run of runs" class="table-secondary">
-        <td scope="row" (click)="showRun(run)">{{run.date}}</td>
+        <td>{{run.date}}</td>
         <td>{{run.location}}</td>
         <td>{{run.distance}}</td>
         <td>{{run.time}}</td>
@@ -31,7 +31,7 @@
         <td>{{run.elevationGain}}</td>
         <td>{{run.description}}</td>
         <td>
-          <button class="btn btn-primary" (click)="showRun(run)">View Run</button>
+          <button class="btn btn-primary" (click)="showRun(run)">Edit</button>
         </td>
         <td>
           <button class="btn btn-danger" (click)="deleteRun(run)">X</button>
@@ -81,6 +81,11 @@
       <button class="btn btn-primary" (click)="updateRun(editRun)">Update Run</button>
       <button class="btn btn-warning" (click)="goBack()">Back</button>
     </div>
+  </form>
+</div>
+<div class="container-fluid">
+  <form class="editForm">
+<h2>View Stats</h2>
   </form>
 </div>
 
